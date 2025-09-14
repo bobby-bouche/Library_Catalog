@@ -17,8 +17,10 @@ public abstract class LibraryItem {
 	private String ISBN;
 	
 	
+	
 	// current year
 	private static int current_year = Year.now().getValue();
+	
 	
 	
 	// sysbolic constants
@@ -26,6 +28,7 @@ public abstract class LibraryItem {
 	private static final int MAX_AUTHOR_LENGTH = 50;
 	private static final Pattern ISBN_PATTERN  = Pattern.compile(
 			"^(?:\\d[ -]?){9}[\\dX]$|^(?:97[89][ -]?\\d[ -]?){12}\\d$");
+	
 	
 	
 	// constructor
@@ -40,7 +43,6 @@ public abstract class LibraryItem {
 		this.ISBN = isbn;
 	}
 
-	
 	
 	
 	// validation methods
@@ -73,51 +75,38 @@ public abstract class LibraryItem {
 	}
 	
 
+	
 	// getters and setters
 	public String getTitle() {
 		return title;
 	}
-
-
 
 	public void setTitle(String title) {
 		validateTitle(title);
 		this.title = title;
 	}
 
-
-
 	public String getAuthor() {
 		return author;
 	}
-
-
 
 	public void setAuthor(String author) {
 		validateAuthor(author);
 		this.author = author;
 	}
 
-
-
 	public int getYear() {
 		return year;
 	}
-
-
 
 	public void setYear(int year) {
 		validateYear(year);
 		this.year = year;
 	}
 
-
-
 	public String getISBN() {
 		return ISBN;
 	}
-
-
 
 	public void setISBN(String isbn) {
 		validateISBN(isbn);

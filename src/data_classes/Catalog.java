@@ -1,22 +1,23 @@
 package data_classes;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Catalog<T> {
 
-	private List<T> items = new ArrayList<>();
+	private HashMap<String, T> libraryCatalog = new HashMap<>();
 	
 	
 	
-	public void addItem(T item) {
-		items.add(item);
+	public void addItemToCatalog(String isbn, T item) {
+		libraryCatalog.put(isbn, item);
 	}
 	
 	
 	
-	public List<T> getAllItems(){
-		return items;
+	public HashMap<String, T> getAllItemsFromCatalog(){
+		return libraryCatalog;
 	}
+	
+	
 	
 }

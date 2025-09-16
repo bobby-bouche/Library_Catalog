@@ -14,12 +14,12 @@ public class Book extends LibraryItem implements Borrowable{
 	
 	// overridden methods from Borrowable
 	@Override
-	public void borrowItem() {
+	public void isBorrowed() {
 		System.out.println(this.getTitle() + " is now borrowed..");	
 	}
 
 	@Override
-	public void returnItem() {
+	public void isReturned() {
 		System.out.println(this.getTitle() + " has now been returned..");
 	}
 	

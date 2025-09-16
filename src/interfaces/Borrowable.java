@@ -2,7 +2,7 @@ package interfaces;
 
 public interface Borrowable {
 
-	void borrowItem();
+	void isBorrowed();
 	
-	void returnItem();
+	void isReturned();
 }

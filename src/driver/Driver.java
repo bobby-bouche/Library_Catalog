@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.HashMap;
+
 import data_classes.Book;
 import data_classes.Catalog;
 import data_classes.LibraryAccount;
@@ -22,10 +24,13 @@ public class Driver {
 		log.addItemToCatalog(book2.getISBN(), book2);
 		log.addItemToCatalog(book3.getISBN(), book3);
 		
-		
 		// #2
-		LibraryAccount account1 = new LibraryAccount(1234);
+		HashMap<String, Book> books = new HashMap<>();
+		books = log.getAllItemsFromCatalog();
+		System.out.println(books);
 		
-		System.out.println(log.getAllItemsFromCatalog());
+		
+		LibraryAccount account1 = new LibraryAccount(1234);
+	
 	}
 }

@@ -2,6 +2,8 @@ package data_classes;
 
 import java.util.ArrayList;
 
+import exceptions.BorrowLimitExceededException;
+
 public class LibraryAccount {
 	
 	
@@ -38,6 +40,21 @@ public class LibraryAccount {
 	}
 	
 	
+	public void borrowItem(LibraryItem item) {
+
+		if(borrowedItems.size() > 5) {
+			throw new BorrowLimitExceededException("Reached max amount of items you can borrow.");
+		}
+		else if(borrowedItems.contains(item)) {
+			System.out.println("This item can only be borrowed once at any given period.");
+		}
+		else {
+			borrowedItems.add(item);
+			System.out.println("Item borrowed");
+		}
+	}
+	
+
 	
 	// toString
 	@Override

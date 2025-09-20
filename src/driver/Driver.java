@@ -5,7 +5,7 @@ import java.util.HashMap;
 import data_classes.Book;
 import data_classes.Catalog;
 import data_classes.LibraryAccount;
-import data_classes.LibraryItem;
+import exceptions.BorrowLimitExceededException;
 import exceptions.ItemNotFoundException;
 
 
@@ -31,6 +31,9 @@ public class Driver {
 		log.addItemToCatalog(book1.getISBN(), book1);
 		log.addItemToCatalog(book2.getISBN(), book2);
 		log.addItemToCatalog(book3.getISBN(), book3);
+		log.addItemToCatalog(book4.getISBN(), book4);
+		log.addItemToCatalog(book5.getISBN(), book5);
+		log.addItemToCatalog(book6.getISBN(), book6);
 		
 		System.out.println(log.getAllItemsFromCatalog().size());
 		
@@ -58,19 +61,28 @@ public class Driver {
 		
 		
 		// #3
-		LibraryAccount account1 = new LibraryAccount(1234);
-	    account1.borrowItem(book1);
-	    account1.borrowItem(book2);
-	    account1.borrowItem(book3);
-	    account1.borrowItem(book4);
-	    account1.borrowItem(book5);
-	  //  System.out.println("My borrowed items: " + account1.getBorrowedItems().size());
-	    account1.borrowItem(book6);
-		// TODO account1.returnItem();
-		// System.out.println(account1.getBorrowedItems());
-		
-		// #4
+		try {
+			LibraryAccount account1 = new LibraryAccount(1234);
+			
 
+		    account1.borrowItem(book1);
+		    account1.borrowItem(book2);
+		    account1.borrowItem(book3);
+		    account1.borrowItem(book4);
+		    account1.borrowItem(book5);
+		    // System.out.println("My borrowed items: " + account1.getBorrowedItems().size());
+		    account1.borrowItem(book6);
+			// TODO account1.returnItem();
+			// System.out.println(account1.getBorrowedItems());
+		}
+		catch(BorrowLimitExceededException e) {
+			e.printStackTrace();
+		}
+
+		
+	    
+	    
+		// #4
 		//System.out.println("My borrowed items: " + account1.getBorrowedItems().size() + " - " + account1.getBorrowedItems());
 	}
 	

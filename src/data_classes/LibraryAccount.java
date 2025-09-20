@@ -42,7 +42,7 @@ public class LibraryAccount {
 	
 	public void borrowItem(LibraryItem item) {
 
-		if(borrowedItems.size() > 5) {
+		if(this.borrowedItems.size() == 5) {
 			throw new BorrowLimitExceededException("Reached max amount of items you can borrow.");
 		}
 		else if(borrowedItems.contains(item)) {

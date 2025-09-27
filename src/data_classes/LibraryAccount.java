@@ -42,7 +42,7 @@ public class LibraryAccount {
 	
 	public void borrowItem(LibraryItem item) {
 
-		if(this.borrowedItems.size() == 5) {
+		if(borrowedItems.size() == 5) {
 			throw new BorrowLimitExceededException("Reached max amount of items you can borrow.");
 		}
 		else if(borrowedItems.contains(item)) {
@@ -51,7 +51,6 @@ public class LibraryAccount {
 		else {
 			borrowedItems.add(item);
 			item.isBorrowed();
-			System.out.println("Item borrowed");
 		}
 	}
 	
@@ -59,6 +58,13 @@ public class LibraryAccount {
 	
 	public void returnItem(LibraryItem item) {
 		
+		if(borrowedItems.contains(item)) {
+			borrowedItems.remove(item);
+			item.isReturned();
+		}
+		else {
+			System.out.println("Item is not on your borrowed list.");
+		}
 	}
 
 	

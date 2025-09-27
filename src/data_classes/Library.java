@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Library {
 	
 	// fields
-	private ArrayList<Integer> libraryAccounts = new ArrayList<>();
+	private ArrayList<Integer> libraryAccounts;
 
 	
 	// constructor
 	public Library() {
 		super();
+		libraryAccounts = new ArrayList<>();
 	}
 
 

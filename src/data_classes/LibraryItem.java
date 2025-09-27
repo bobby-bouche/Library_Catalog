@@ -7,8 +7,9 @@ import exceptions.InvalidAuthorException;
 import exceptions.InvalidISBNException;
 import exceptions.InvalidTitleException;
 import exceptions.InvalidYearException;
+import interfaces.Borrowable;
 
-public abstract class LibraryItem {
+public abstract class LibraryItem implements Borrowable {
 
 	// class fields
 	private String title;

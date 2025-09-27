@@ -50,10 +50,16 @@ public class LibraryAccount {
 		}
 		else {
 			borrowedItems.add(item);
+			item.isBorrowed();
 			System.out.println("Item borrowed");
 		}
 	}
 	
+	
+	
+	public void returnItem(LibraryItem item) {
+		
+	}
 
 	
 	// toString

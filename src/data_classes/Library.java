@@ -26,4 +26,25 @@ public class Library {
 		return bookCatalog;
 	}
 	
+	
+	
+	
+	public void addItem(Book book) {
+		bookCatalog.addItemToCatalog(book.getISBN(), book);
+	}
+	
+	
+	public void findItemByISBN(String isbn) {
+		
+	}
+	
+	
+	public void registerAccount(int accountNumber) {
+		
+	}
+	
+	
+	public void borrowItem(int accountNumber, String isbn) {
+		
+	}
 }

@@ -1,6 +1,9 @@
 package data_classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import exceptions.ItemNotFoundException;
 
 public class Library {
 	
@@ -35,7 +38,19 @@ public class Library {
 	
 	
 	public void findItemByISBN(String isbn) {
-		
+		try {
+			HashMap<String, Book> books = new HashMap<>();
+			books = bookCatalog.getAllItemsFromCatalog();
+			if(books.get("0306406152") != null) {
+				System.out.println("Found it!");
+			}
+			else {
+				throw new ItemNotFoundException("Item not found");
+			}	
+		}
+		catch(ItemNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

@@ -8,7 +8,7 @@ import exceptions.ItemNotFoundException;
 public class Library {
 	
 	// fields
-	private ArrayList<Integer> libraryAccounts;
+	private ArrayList<LibraryAccount> libraryAccounts;
 	private Catalog<Book> bookCatalog;
 
 	
@@ -20,7 +20,7 @@ public class Library {
 	}
 
 
-	public ArrayList<Integer> getLibraryAccounts() {
+	public ArrayList<LibraryAccount> getLibraryAccounts() {
 		return libraryAccounts;
 	}
 
@@ -41,7 +41,7 @@ public class Library {
 		try {
 			HashMap<String, Book> books = new HashMap<>();
 			books = bookCatalog.getAllItemsFromCatalog();
-			if(books.get("0306406152") != null) {
+			if(books.get(isbn) != null) {
 				System.out.println("Found it!");
 			}
 			else {
@@ -55,7 +55,9 @@ public class Library {
 	
 	
 	public void registerAccount(int accountNumber) {
-		
+		for(LibraryAccount account : libraryAccounts) {
+			
+		}
 	}
 	
 	

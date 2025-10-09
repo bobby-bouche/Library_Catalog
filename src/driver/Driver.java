@@ -1,12 +1,8 @@
 package driver;
 
 import java.util.HashMap;
-
 import data_classes.Book;
-import data_classes.Catalog;
 import data_classes.Library;
-import data_classes.LibraryAccount;
-import exceptions.BorrowLimitExceededException;
 import exceptions.ItemNotFoundException;
 
 
@@ -26,7 +22,6 @@ public class Driver {
 	// method to load data to Library
 	public void loadlibrary() {
 		
-		
 		// load library litem data
 		Book book1 = new Book("LOTR", "JRR Tolkein", 1934, "0306406152");
 		Book book2 = new Book("HOBBIT", "JRR Tolkein", 1931, "0140449132");
@@ -35,13 +30,13 @@ public class Driver {
 		Book book5 = new Book("STONE DRGAONS", "JRR Tolkein", 1956, "0140669132");
 		Book book6 = new Book("TEMPLE KINGS", "PAULO NUBLI", 2008, "0-446-65688-X");
 		
+		// #1
 		library.getBookCatalog().addItemToCatalog(book1.getISBN(), book1);
 		library.getBookCatalog().addItemToCatalog(book2.getISBN(), book2);
 		library.getBookCatalog().addItemToCatalog(book3.getISBN(), book3);
 		library.getBookCatalog().addItemToCatalog(book4.getISBN(), book4);
 		library.getBookCatalog().addItemToCatalog(book5.getISBN(), book5);
-		library.getBookCatalog().addItemToCatalog(book6.getISBN(), book6);
-		
+		library.getBookCatalog().addItemToCatalog(book6.getISBN(), book6);	
 	}
 	
 	
@@ -61,6 +56,14 @@ public class Driver {
 			}
 			
 			System.out.println("==============================\n");
+			
+			
+			// #3
+			
+			
+			
+			// #4
+			//System.out.println("My borrowed items: " + account1.getBorrowedItems().size() + " - " + account1.getBorrowedItems());
 			
 		}
 		catch(ItemNotFoundException e) {
@@ -84,24 +87,7 @@ public class Driver {
 		}
 		catch(IllegalArgumentException e) {
 			System.out.println(e);
-			
 		}
-		
-		
-		
-		// #3
-		try {
-
-		}
-		catch(BorrowLimitExceededException e) {
-			e.printStackTrace();
-		}
-
-		
-	    
-	    
-		// #4
-		//System.out.println("My borrowed items: " + account1.getBorrowedItems().size() + " - " + account1.getBorrowedItems());
 	}
 	
 	

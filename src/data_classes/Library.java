@@ -36,12 +36,13 @@ public class Library {
 	}
 	
 	
-	public void findItemByISBN(String isbn) {
+	public Book findItemByISBN(String isbn) {
 		try {
 			HashMap<String, Book> books = new HashMap<>();
 			books = bookCatalog.getAllItemsFromCatalog();
 			if(books.get(isbn) != null) {
 				System.out.println("Found it!");
+				return books.get(isbn);
 			}
 			else {
 				throw new ItemNotFoundException("Item not found");
@@ -50,6 +51,7 @@ public class Library {
 		catch(ItemNotFoundException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 	
 	
@@ -76,6 +78,7 @@ public class Library {
 				if(account.getAccNumber() != accountNumber) {
 					throw new InvalidAccountException("Error. Account not on record..");
 				}
+		
 			}
 			
 		}

@@ -3,6 +3,7 @@ package driver;
 import java.util.HashMap;
 import data_classes.Book;
 import data_classes.Library;
+import data_classes.LibraryAccount;
 import exceptions.ItemNotFoundException;
 
 
@@ -58,12 +59,18 @@ public class Driver {
 			System.out.println("==============================\n");
 			
 			
-			// #3
-			
+			// #3 
+			//borrow
+			LibraryAccount account1 = new LibraryAccount(1234);
+			account1.borrowItem(library.findItemByISBN("0306406152"));
+			account1.borrowItem(library.findItemByISBN("0140449132"));
+	
+			// return 
+			account1.returnItem(library.findItemByISBN("0306406152"));
 			
 			
 			// #4
-			//System.out.println("My borrowed items: " + account1.getBorrowedItems().size() + " - " + account1.getBorrowedItems());
+			System.out.println("My borrowed items: " + account1.getBorrowedItems().size() + " - " + account1.getBorrowedItems());
 			
 		}
 		catch(ItemNotFoundException e) {

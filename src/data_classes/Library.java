@@ -3,6 +3,7 @@ package data_classes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import exceptions.InvalidAccountException;
 import exceptions.ItemNotFoundException;
 
 public class Library {
@@ -30,8 +31,6 @@ public class Library {
 	}
 	
 	
-	
-	
 	public void addItem(Book book) {
 		bookCatalog.addItemToCatalog(book.getISBN(), book);
 	}
@@ -55,13 +54,34 @@ public class Library {
 	
 	
 	public void registerAccount(int accountNumber) {
-		for(LibraryAccount account : libraryAccounts) {
-			
+		try {
+			for(LibraryAccount account : libraryAccounts) {
+				if(account.getAccNumber() == accountNumber) {
+					throw new InvalidAccountException("Error. Account already Exists..");
+				}
+			}
+			LibraryAccount newAccount = new LibraryAccount(accountNumber);
+			libraryAccounts.add(newAccount);
+			System.out.println("Account registered..");
+		}
+		catch(InvalidAccountException e) {
+			e.printStackTrace();
 		}
 	}
 	
 	
 	public void borrowItem(int accountNumber, String isbn) {
-		
+		try {
+			LibraryAccount userAccount;
+			for(LibraryAccount account : libraryAccounts) {
+				if(account.getAccNumber() != accountNumber) {
+					throw new InvalidAccountException("Error. Account not on record..");
+				}
+			}
+			userAccount = libraryAccounts.get(accountNumber);
+		}
+		catch(InvalidAccountException e) {
+			e.printStackTrace();
+		}
 	}
 }

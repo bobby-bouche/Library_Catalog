@@ -12,6 +12,9 @@ public class LibraryAccount {
 	private ArrayList<LibraryItem> borrowedItems;
 
 	
+	// symbolic constants
+	private static final int MAX_BORROW_LIMIT = 5;
+	
 	
 	// constructor
 	public LibraryAccount(int accNum) {
@@ -42,7 +45,7 @@ public class LibraryAccount {
 	
 	public void borrowItem(LibraryItem item) {
 
-		if(borrowedItems.size() == 5) {
+		if(borrowedItems.size() == MAX_BORROW_LIMIT) {
 			throw new BorrowLimitExceededException("Reached max amount of items you can borrow.");
 		}
 		else if(borrowedItems.contains(item)) {

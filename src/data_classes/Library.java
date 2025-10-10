@@ -74,16 +74,26 @@ public class Library {
 	
 	public void borrowItem(int accountNumber, String isbn) {
 		try {
-			for(LibraryAccount account : libraryAccounts) {
-				if(account.getAccNumber() != accountNumber) {
-					throw new InvalidAccountException("Error. Account not on record..");
+			LibraryAccount account = null;
+			for(LibraryAccount acc : libraryAccounts) {
+				if(acc.getAccNumber() == accountNumber) {
+					account = acc;
+					break;
 				}
-		
 			}
 			
+			if(account == null) {
+				throw new InvalidAccountException("Error. Account not on record..");
+			}
+			
+			Book book = findItemByISBN(isbn);
+			if(book != null) {
+				account.borrowItem(book);
+			}
 		}
 		catch(InvalidAccountException e) {
 			e.printStackTrace();
 		}
 	}
+	
 }

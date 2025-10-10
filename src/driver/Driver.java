@@ -74,7 +74,7 @@ public class Driver {
 			
 		}
 		catch(ItemNotFoundException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -93,7 +93,7 @@ public class Driver {
 			
 		}
 		catch(IllegalArgumentException e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 	}
 	
